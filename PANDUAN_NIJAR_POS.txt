@@ -1,0 +1,122 @@
+==========================================================
+          🖥️ PANDUAN LENGKAP PENGGUNAAN NIJAR POS
+==========================================================
+
+Selamat datang di NIJAR POS, sistem kasir premium dengan estetika 
+monochrome modern. Panduan ini menjelaskan setiap detail fitur 
+sistem Anda dari akar hingga ujung.
+
+----------------------------------------------------------
+1. 🔐 SISTEM AUTENTIKASI & HAK AKSES
+----------------------------------------------------------
+NIJAR POS memiliki sistem keamanan berbasis Role (Peran):
+
+👤 Akun Default (Siap Pakai):
+* OWNER (Pemilik)
+  - Email: owner@nijar.com
+  - Password: password123
+  - Akses: Penuh (Dashboard, Inventory, POS, Reports).
+
+* STAFF (Kasir)
+  - Email: staff@nijar.com
+  - Password: password123
+  - Akses: Terbatas (Hanya Dashboard & POS Terminal).
+
+----------------------------------------------------------
+2. 📊 DASHBOARD (PUSAT KENDALI)
+----------------------------------------------------------
+Halaman utama setelah login yang menyajikan data real-time:
+* Total Revenue: Akumulasi pendapatan kotor dari seluruh transaksi.
+* Total Orders: Jumlah pesanan yang berhasil diproses.
+* Inventory Items: Jumlah variasi produk yang terdaftar.
+* Low Stock Alert: Peringatan otomatis (berwarna merah) jika ada 
+  barang yang stoknya DI BAWAH 10 UNIT.
+* Recent Transactions: Daftar 5 transaksi terakhir untuk 
+  pemantauan cepat.
+
+----------------------------------------------------------
+3. 📦 INVENTORY MANAGEMENT (GUDANG)
+----------------------------------------------------------
+Fitur untuk mengelola barang dagangan Anda:
+* New Product: Menambah produk baru lengkap dengan Kategori, 
+  Harga, dan Stok awal.
+* Categories: Mengelola kategori produk (Tambah/Hapus). 
+  Catatan: Kategori tidak bisa dihapus jika masih ada produk 
+  di dalamnya.
+* Restock (Penting): Klik tombol "Restock" pada produk untuk 
+  menambah jumlah stok masuk secara cepat tanpa mengedit produk.
+* Search & Filter: Cari barang berdasarkan nama atau klik tombol 
+  kategori untuk memfilter tampilan secara instan (AJAX).
+
+----------------------------------------------------------
+4. 🛒 POS TERMINAL (KASIR)
+----------------------------------------------------------
+Jantung dari sistem ini, dirancang untuk kecepatan transaksi:
+* Menu Grid: Klik pada gambar/nama produk untuk memasukkan ke 
+  keranjang (Cart).
+* Dynamic Cart: Ubah jumlah item langsung di keranjang.
+* Tax (10%): Pajak dihitung otomatis sebesar 10% dari subtotal.
+* Payment & Change: Masukkan nominal uang pelanggan, kembalian 
+  akan muncul otomatis secara real-time.
+* Checkout Order: Setelah diklik, stok akan otomatis terpotong 
+  di database.
+* Automatic Receipt: Struk akan MUNCUL OTOMATIS di tab baru 
+  setelah transaksi sukses.
+
+----------------------------------------------------------
+5. 🧾 REPORTS & EXPORT (LAPORAN)
+----------------------------------------------------------
+Pantau performa bisnis Anda:
+* Transaction List: Riwayat lengkap seluruh invoice.
+* Print Receipt: Klik ikon printer pada baris transaksi untuk 
+  mencetak ulang struk kapan saja.
+* Export to Excel: Klik tombol "Export to Excel" untuk mengunduh 
+  laporan dalam format .csv (Semicolon delimited) yang rapi 
+  dan siap dibuka di Excel.
+
+----------------------------------------------------------
+7. 🔄 ALUR KERJA SISTEM (WORKFLOW)
+----------------------------------------------------------
+Berikut adalah bagaimana data mengalir di NIJAR POS:
+
+1. Tahap Persiapan (Inventory):
+   Owner memastikan produk terdaftar dan stok mencukupi. 
+   Gunakan fitur "Restock" jika barang baru datang.
+
+2. Tahap Penjualan (POS Terminal):
+   Kasir mencari barang (Search/Filter), memasukkan ke Cart, 
+   dan menginput pembayaran. Kembalian & Pajak dihitung otomatis.
+
+3. Tahap Eksekusi (Checkout):
+   Saat Checkout, sistem memvalidasi pembayaran, mengurangi 
+   stok di database, menyimpan transaksi, dan membuka 
+   STRUK OTOMATIS di jendela baru.
+
+4. Tahap Laporan:
+   Semua data penjualan langsung masuk ke Dashboard (Statistik) 
+   dan Reports (Riwayat). Laporan bisa diekspor ke Excel kapan saja.
+
+----------------------------------------------------------
+8. 🛠️ PEMELIHARAAN TEKNIS
+----------------------------------------------------------
+Jika Anda ingin mereset atau mengembangkan sistem:
+* Reset Database & Sample Data:
+  Command: php artisan migrate:fresh --seed
+* Link Gambar:
+  Command: php artisan storage:link
+* Menambah User via Tinker:
+  - Command: php artisan tinker
+  - Kode: App\Models\User::create(['name'=>'Nama', 'email'=>'e@mail.com', 'password'=>bcrypt('pass'), 'role'=>'owner']);
+
+----------------------------------------------------------
+🎨 KARAKTERISTIK DESAIN
+----------------------------------------------------------
+* Plus Jakarta Sans: Font modern yang digunakan di seluruh sistem.
+* Lucide Icons: Ikon garis yang bersih dan profesional.
+* Monochrome Theme: Dominasi Hitam (#000) dan Putih untuk kesan premium.
+* Toast Notifications: Notifikasi melayang di pojok kanan bawah 
+  untuk konfirmasi aksi sukses/gagal.
+
+==========================================================
+        Dikembangkan dengan ❤️ untuk NIJAR POS
+==========================================================
